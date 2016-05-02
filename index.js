@@ -72,6 +72,7 @@ module.exports = function init(config, cb) {
             async.each(files, function(file, cb) {
                 debug('Loading %s', file)
                 fs.readFile(path.join(__dirname, 'lua', file), { encoding: 'utf-8' }, function(err, script) {
+                    if (err) return cb(err)
                     store.script('load', script, function(err, sha) {
                         if (err) return cb(err)
                         scripts[path.basename(file, '.lua')] = sha
