@@ -1,0 +1,34 @@
+{
+  "name": "block-sequence-redis",
+  "version": "0.1.0",
+  "description": "A redis implementation of block-sequence",
+  "main": "index.js",
+  "scripts": {
+    "redis": "docker run --detach --publish-all --name bs-redis redis",
+    "test": "node tests/index.js | tap-spec"
+  },
+  "keywords": [
+    "Block",
+    "Sequence",
+    "Id",
+    "Generator",
+    "Redis"
+  ],
+  "author": "GuideSmiths",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "debug": "^2.2.0",
+    "lodash": "^4.11.1",
+    "redis": "^2.6.0-2",
+    "safe-json-parse": "^4.0.0"
+  },
+  "devDependencies": {
+    "block-sequence-compliance-tests": "0.1.0",
+    "eslint": "^0.24.1",
+    "eslint-config-imperative": "0.0.6",
+    "eslint-plugin-imperative": "0.0.2",
+    "husky": "^0.11.4",
+    "tap-spec": "^4.1.1"
+  }
+}
