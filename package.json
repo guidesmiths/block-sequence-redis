@@ -4,7 +4,7 @@
   "description": "A redis implementation of block-sequence",
   "main": "index.js",
   "scripts": {
-    "redis": "docker run --rm --detach --publish 6379:6379 --name bs-redis redis",
+    "redis": "docker run --detach --publish 6379:6379 --name bs-redis redis",
     "test": "node tests/index.js | tap-spec",
     "lint": "eslint .",
     "prepush": "npm run lint && npm test"
