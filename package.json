@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "redis": "docker run --detach --publish-all --name bs-redis redis",
-    "test": "node tests/index.js | tap-spec"
+    "test": "node tests/index.js | tap-spec",
+    "lint": "eslint .",
+    "prepush": "npm run lint && npm test"
   },
   "keywords": [
     "Block",
