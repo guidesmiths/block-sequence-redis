@@ -1,0 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker run --detach --publish 6379:6379 --name redis redis:3.2.6-alpine
+  - sleep 5
+
+language: node_js
+
+node_js:
+  - "0.10"
+  - "0.12"
+  - "4"
+  - "5"
+  - "6"
+  - "7"
