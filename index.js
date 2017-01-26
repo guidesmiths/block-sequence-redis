@@ -5,6 +5,7 @@ var safeParse = require('safe-json-parse/callback')
 var async = require('async')
 var fs = require('fs')
 var path = require('path')
+var bigInt = require('big-integer')
 
 module.exports = function init(config, cb) {
 
@@ -93,9 +94,11 @@ module.exports = function init(config, cb) {
             obj[list[i]] = list[i+1]
         }
         safeParse(obj.metadata, function(err, metadata) {
+            var value = bigInt(obj.value)
+            if (value.greater(Number.MAX_SAFE_INTEGER)) return cb(new Error('Sequence value exceeds Number.MAX_SAFE_INTEGER'))
             cb(err, {
                 name: obj.name,
-                value: parseInt(obj.value, 10),
+                value: value.toJSNumber(),
                 metadata: metadata
             })
         })
