@@ -21,7 +21,7 @@
   "author": "GuideSmiths",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.1.4",
+    "async": "^3.2.2",
     "big-integer": "^1.6.17",
     "debug": "^2.6.0",
     "lodash": "^4.17.4",
